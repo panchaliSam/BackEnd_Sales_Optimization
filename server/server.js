@@ -1,8 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
 
 dotenv.config();
+
+const { connectDatabse } = require("./config");
 
 //Import salesRecord Routes
 const SalesRecordRoutes = require('./routes/salesRecord.route')
@@ -12,9 +13,7 @@ const app = express();
 const port = process.env.PORT || 4003;
 
 //MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB Connected...'))
-    .catch(err => console.log(err));
+connectDatabse();
 
 // Middleware
 app.use(express.json()); // To parse JSON bodies
