@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const SalesRecordController = require('../controller/SalesRecord');
+const SalesRecordController = require('../controller/salesRecord.controller');
 
 //Create a new sales record
 router.post('/', SalesRecordController.createSalesRecord);
@@ -9,9 +9,6 @@ router.post('/', SalesRecordController.createSalesRecord);
 router.get('/', SalesRecordController.getAllSalesRecords);
 
 //Read a single sales records
-router.get('/:id', SalesRecordController.getSalesRecordById);
-
-// Read a single sales record by ID
 router.get('/:id', SalesRecordController.getSalesRecordById);
 
 // Update a sales record by ID

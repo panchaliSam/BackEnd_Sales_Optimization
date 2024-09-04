@@ -2,10 +2,10 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
-dotenv.config(); 
+dotenv.config();
 
-//Import SalesRecord Routes
-const SalesRecordRoutes = require('./routes/SalesRecord')
+//Import salesRecord Routes
+const SalesRecordRoutes = require('./routes/salesRecord.route')
 
 //Express app
 const app = express();
@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(express.json()); // To parse JSON bodies
 
 // Use routes
-app.use('/api/sales-records', SalesRecordRoutes); // Prefix routes with /api/sales-records
+app.use('/api/sales-records', SalesRecordRoutes);
 
 //Route to check connection
 app.get('/', (req, res) => {

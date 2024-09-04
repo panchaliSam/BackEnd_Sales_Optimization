@@ -1,4 +1,4 @@
-const SalesRecord = require('../models/SalesRecord');
+const SalesRecord = require('../models/salesRecord.model');
 
 //Create a new sales record 
 exports.createSalesRecord = async (req, res) => {
