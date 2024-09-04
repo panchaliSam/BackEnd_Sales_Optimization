@@ -4,9 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const { connectDatabse } = require("./config");
-
-//Import salesRecord Routes
-const SalesRecordRoutes = require('./routes/salesRecord.route')
+const routes = require("./routes");
 
 //Express app
 const app = express();
@@ -19,16 +17,16 @@ connectDatabse();
 app.use(express.json()); // To parse JSON bodies
 
 // Use routes
-app.use('/api/sales-records', SalesRecordRoutes);
+app.use(routes);
 
 //Route to check connection
-app.get('/', (req, res) => {
-    res.json({
-        message: 'MongoDB Connected Successfully!',
-        status: 200,
-        port: port
-    });
-});
+// app.get('/', (req, res) => {
+//     res.json({
+//         message: 'MongoDB Connected Successfully!',
+//         status: 200,
+//         port: port
+//     });
+// });
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

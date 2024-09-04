@@ -1,9 +1,9 @@
-const { SalesRecords } = require('../models');
+const { salesRecords } = require('../models');
 
 //Create a new sales record 
 exports.createSalesRecord = async (req, res) => {
     try {
-        const newRecord = new SalesRecords(req.body);
+        const newRecord = new salesRecords(req.body);
         const savedRecord = await newRecord.save();
         res.status(201).json(savedRecord);
     } catch (err) {
@@ -14,7 +14,7 @@ exports.createSalesRecord = async (req, res) => {
 //Get all sales records
 exports.getAllSalesRecords = async (req, res) => {
     try {
-        const records = await SalesRecords.find();
+        const records = await salesRecords.find();
         res.status(200).json(records);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -24,7 +24,7 @@ exports.getAllSalesRecords = async (req, res) => {
 //Get a single sales record by ID
 exports.getSalesRecordById = async (req, res) => {
     try {
-        const record = await SalesRecords.findById(req.params.id);
+        const record = await salesRecords.findById(req.params.id);
         if (!record) return res.status(404).json({ message: 'Record not found' });
         res.status(200).json(record);
     } catch (err) {
@@ -35,7 +35,7 @@ exports.getSalesRecordById = async (req, res) => {
 //Update a sales record by ID
 exports.updateSalesRecordById = async (req, res) => {
     try {
-        const updateRecord = await SalesRecords.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updateRecord = await salesRecords.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updateRecord) return res.status(404).json({ message: 'Record not found' });
         res.status(200).json(updateRecord);
     } catch (err) {
@@ -46,7 +46,7 @@ exports.updateSalesRecordById = async (req, res) => {
 // Delete a sales record by ID
 exports.deleteSalesRecordById = async (req, res) => {
     try {
-        const deletedRecord = await SalesRecords.findByIdAndDelete(req.params.id);
+        const deletedRecord = await salesRecords.findByIdAndDelete(req.params.id);
         if (!deletedRecord) return res.status(404).json({ message: 'Record not found' });
         res.status(200).json({ message: 'Record deleted successfully' });
     } catch (err) {
