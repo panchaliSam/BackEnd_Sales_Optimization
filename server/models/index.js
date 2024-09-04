@@ -1,5 +1,5 @@
-const SalesRecords = require('./salesRecord.model');
+const salesRecords = require('./salesRecord.model');
 
 module.exports = {
-    SalesRecords
+    salesRecords
 };
