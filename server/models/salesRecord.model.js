@@ -12,15 +12,33 @@ const sriLankanProvinces = [
 //Sample Brands
 const productBrands = ['BrandA', 'BrandB', 'BrandC', 'BrandD', 'BrandE'];
 
-const salesRecordSchema = new mongoose.Schema({
-    date: { type: Date, required: true },
-    salesQuantity: { type: Number, required: true },
+const salesRecordSchema = new mongoose.Schema(
+    {
+        date: {
+            type: Date,
+            required: true
+        },
+        salesQuantity: {
+            type: Number,
+            required: true
+        },
 
-    productCategory: { type: String, enum: productCategories, required: true },
-    productBrand: { type: String, enum: productBrands, required: true },
+        productCategory: {
+            type: String,
+            enum: productCategories,
+            required: true
+        },
+        productBrand: {
+            type: String,
+            enum: productBrands,
+            required: true
+        },
 
-    customerLocation: { type: String, enum: sriLankanProvinces, required: true }
-
+        customerLocation: {
+            type: String,
+            enum: sriLankanProvinces,
+            required: true
+        }
 });
 
 module.exports = mongoose.model('SalesRecord', salesRecordSchema);
