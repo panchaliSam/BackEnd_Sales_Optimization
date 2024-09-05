@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const SalesRecordController = require('../controller/salesRecord.controller');
+const SalesRecordController = require('../../controller/salesRecord.controller');
 
 //Create a new sales record
 router.post('/', SalesRecordController.createSalesRecord);
