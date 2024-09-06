@@ -7,4 +7,4 @@ module.exports = {
 
 module.exports = {
     customerRecordsController
-}
+} record 
