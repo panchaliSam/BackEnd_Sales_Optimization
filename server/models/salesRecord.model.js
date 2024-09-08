@@ -27,12 +27,33 @@ const productBrands = [
     'BrandE'
 ];
 
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
+
 const salesRecordSchema = new mongoose.Schema(
     {
-        date: {
-            type: Date,
+        year: {
+            type: Number,
             required: true,
-            unique: true  // Ensure the date is unique
+            min: 2000,
+            max: new Date().getFullYear()
+        },
+        month: {
+            type: String,
+            enum: months,
+            required: true
         },
         salesQuantity: {
             type: Number,
@@ -57,7 +78,7 @@ const salesRecordSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-// Create a unique index on the date field to prevent duplicate dates
-salesRecordSchema.index({ date: 1 }, { unique: true });
+// Update the unique index to include productCategory and productBrand along with year and month
+salesRecordSchema.index({ year: 1, month: 1, productCategory: 1, productBrand: 1 }, { unique: true });
 
 module.exports = mongoose.model('SalesRecord', salesRecordSchema);
