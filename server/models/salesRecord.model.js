@@ -78,7 +78,7 @@ const salesRecordSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-// Create a unique index on year and month to prevent duplicates
-salesRecordSchema.index({ year: 1, month: 1 }, { unique: true });
+// Update the unique index to include productCategory and productBrand along with year and month
+salesRecordSchema.index({ year: 1, month: 1, productCategory: 1, productBrand: 1 }, { unique: true });
 
 module.exports = mongoose.model('SalesRecord', salesRecordSchema);
