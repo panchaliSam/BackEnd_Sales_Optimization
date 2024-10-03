@@ -9,22 +9,20 @@ const sriLankanSesons = [
     'Valentine\s Day'
 ];
 
-const productCategories = [
-    'Clothing',
-    'Footwear',
-    'Accessories'
-];
+
 
 const seasonalDemandSchema = new mongoose.Schema(
     {
         season: {
             type: String,
             enum: sriLankanSesons,
-            required: true
+            //required: true
         },
         year: {
             type: Number,
-            required: true
+            required: true,
+            min: 2000,
+            max: new Date().getFullYear()
         },
         noOfTransactions: {
             type: Number,
