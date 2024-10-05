@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const SalesRecordController = require('../../controller/salesRecord.controller');
 
+// Predictive data for next month's sales quantity for each product category
+router.get('/quantity/predictiveData', SalesRecordController.predictiveData);
+
 //Create a new sales record
 router.post('/', SalesRecordController.createSalesRecord);
 
