@@ -11,7 +11,7 @@ router.use('/api/salesRecord', salesRecordRoutes);
 router.use('/api/customerRecord',customersRecordRoutes);
 
 
-router.use('/api/sales', createSalesRecord);
+router.use('/api/sales', salesRoutes);
 
 
 router.use('*', (req, res) => res.status(404).json('No API route found'));
