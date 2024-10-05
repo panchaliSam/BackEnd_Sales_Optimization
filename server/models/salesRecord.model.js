@@ -57,7 +57,8 @@ const salesRecordSchema = new mongoose.Schema(
         },
         salesQuantity: {
             type: Number,
-            required: true
+            required: true,
+            min: 0
         },
         productCategory: {
             type: String,
